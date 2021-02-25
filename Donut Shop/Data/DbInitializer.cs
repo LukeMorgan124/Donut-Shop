@@ -18,9 +18,14 @@ namespace Donut_Shop.Data
 
             var products = new Product[]
             {
-                new Product{ProductName="Chocolate",Price=5,StockLocation="Avondale, Glen Eden, Green Bay, Blockhouse Bay, Henderson"},
-                new Product{ProductName="Cinnamon",Price=6,StockLocation="Glen Eden, Oritia, Kelston, Green Bay, Henderson"},
-                new Product{ProductName="Caramel",Price=8,StockLocation="Avondale, Oritia, Titirangi, Blockhouse Bay"},
+                new Product{ProductName="Chocolate",Price=3,StockLocation="Avondale, Glen Eden, Green Bay, Blockhouse Bay, Henderson"},
+                new Product{ProductName="Cinnamon",Price=4,StockLocation="Glen Eden, Oritia, Kelston, Green Bay, Henderson"},
+                new Product{ProductName="Caramel",Price=4,StockLocation="Avondale, Oritia, Titirangi, Blockhouse Bay"},
+                new Product{ProductName="Strawberry",Price=3,StockLocation="Avondale, Glen Eden, Titirangi, Kelston, Blockhouse Bay"},
+                new Product{ProductName="Vanilla",Price=3,StockLocation="Avondale, Oritia, Green Bay, Blockhouse Bay, Henderson"},
+                new Product{ProductName="Jelly",Price=5,StockLocation="Oritia, Titirangi, Kelston, Blockhouse Bay, Henderson"},
+                new Product{ProductName="Blueberry",Price=4,StockLocation="Avondale, Glen Eden, Oritia, Titirangi, Kelston, Green Bay, Blockhouse Bay, Henderson"},
+                new Product{ProductName="Coffee",Price=6,StockLocation="Glen Eden, Oritia, Kelston, Green Bay"},
             };
 
             context.Products.AddRange(products);
@@ -65,14 +70,14 @@ namespace Donut_Shop.Data
                 new Staff{FirstName="Jessie",LastName="Robles",DateBirth=DateTime.Parse("18/05/1981"), Location="Henderson", StaffType="Food Preparer"},
                 new Staff{FirstName="Zakary",LastName="Laing",DateBirth=DateTime.Parse("22/04/1991"), Location="Henderson", StaffType="Food Preparer"},
                 new Staff{FirstName="Mahira",LastName="Mill",DateBirth=DateTime.Parse("19/10/2002"), Location="Henderson", StaffType="Supervisor"},
-
             };
 
             context.Staff.AddRange(staff);
             context.SaveChanges();
 
             var stores = new Store[]
-            {               
+            {
+                new Store{Location="Avondale", ProductID=1,3,4,5,7, StaffID=1,2,3,4,5 }
             };
 
             context.Store.AddRange(stores);
