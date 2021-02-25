@@ -77,7 +77,7 @@ namespace Donut_Shop.Data
 
             var stores = new Store[]
             {
-                new Store{Location="Avondale", ProductID=1,3,4,5,7, StaffID=1,2,3,4,5 }
+                new Store{Location="Avondale", ProductID=1, StaffID=1, }
             };
 
             context.Store.AddRange(stores);
