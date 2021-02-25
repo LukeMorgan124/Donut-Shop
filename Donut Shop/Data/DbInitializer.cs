@@ -3,7 +3,7 @@ using Donut_Shop.Models;
 using System;
 using System.Linq;
 
-namespace ContosoUniversity.Data
+namespace Donut_Shop.Data
 {
     public static class DbInitializer
     {
@@ -11,7 +11,6 @@ namespace ContosoUniversity.Data
         {
             context.Database.EnsureCreated();
 
-            // Look for any students.
             if (context.Products.Any())
             {
                 return;   // DB has been seeded

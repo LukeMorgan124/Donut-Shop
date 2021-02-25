@@ -26,8 +26,8 @@ namespace Donut_Shop
                 try
                 {
                     var context = services.GetRequiredService<ShopContext>();
-                    context.Database.EnsureCreated();
-                    // DbInitializer.Initialize(context);
+                   // context.Database.EnsureCreated();
+                     DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {
