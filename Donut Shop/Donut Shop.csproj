@@ -17,8 +17,4 @@
     <PackageReference Include="System.Composition" Version="1.0.31" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Stores\" />
-  </ItemGroup>
-
 </Project>

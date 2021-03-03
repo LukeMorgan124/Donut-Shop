@@ -10,9 +10,9 @@ namespace Donut_Shop.Models
         public string LastName { get; set; }
         public string EmployeeType { get; set; }
         public string Location { get; set; }
-        public DateTime DateBirth { get; set; }
+        public string DateBirth { get; set; }
 
 
-        public Store Store { get; set; }
+        public ICollection<Store> Stores { get; set; }
     }
 }
