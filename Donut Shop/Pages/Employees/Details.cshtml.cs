@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Donut_Shop.Data;
 using Donut_Shop.Models;
 
-namespace Donut_Shop.Pages.Products
+namespace Donut_Shop.Pages.Employees
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace Donut_Shop.Pages.Products
             _context = context;
         }
 
-        public Product Product { get; set; }
+        public Employee Employee { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,12 +28,12 @@ namespace Donut_Shop.Pages.Products
                 return NotFound();
             }
 
-            Product = await _context.Products
-            .Include(s => s.Store)       
+            Employee = await _context.Employees
+            .Include(s => s.Store)
             .AsNoTracking()
-            .FirstOrDefaultAsync(m => m.ProductID == id);
+            .FirstOrDefaultAsync(m => m.EmployeeID == id);
 
-            if (Product == null)
+            if (Employee == null)
             {
                 return NotFound();
             }

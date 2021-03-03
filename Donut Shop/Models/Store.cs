@@ -8,9 +8,9 @@ namespace Donut_Shop.Models
         public int StoreID { get; set; }
         public string Location { get; set; }
         public int ProductID { get; set; }
-        public int StaffID { get; set; }
+        public int EmployeeID { get; set; }
 
-        public Product Product { get; set; }
-        public ICollection<Staff> Staff { get; set; }
+        public ICollection<Store> Stores { get; set; }
+        public ICollection<Employee> Employees  { get; set; }
     }
 }

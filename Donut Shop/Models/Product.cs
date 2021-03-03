@@ -10,6 +10,6 @@ namespace Donut_Shop.Models
         public float Price { get; set; }
         public string StockLocation { get; set; }
 
-        public ICollection<Store> Store { get; set; }
+        public Store Store { get; set; }
     }
 }
