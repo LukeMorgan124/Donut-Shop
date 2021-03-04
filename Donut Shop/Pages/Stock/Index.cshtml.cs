@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Donut_Shop.Data;
 using Donut_Shop.Models;
 
-namespace Donut_Shop.Pages.Stores
+namespace Donut_Shop.Pages.Stocks
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,13 @@ namespace Donut_Shop.Pages.Stores
             _context = context;
         }
 
-        public IList<Store> Store { get;set; }
+        public IList<Stock> Stock { get;set; }
 
         public async Task OnGetAsync()
         {
-            Store = await _context.Stores.ToListAsync();
+            Stock = await _context.Stocks
+                .Include(s => s.Product)
+                .Include(s => s.Store).ToListAsync();
         }
     }
 }

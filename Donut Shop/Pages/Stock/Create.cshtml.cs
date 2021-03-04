@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Donut_Shop.Data;
 using Donut_Shop.Models;
 
-namespace Donut_Shop.Pages.Stores
+namespace Donut_Shop.Pages.Stocks
 {
     public class CreateModel : PageModel
     {
@@ -21,11 +21,13 @@ namespace Donut_Shop.Pages.Stores
 
         public IActionResult OnGet()
         {
+        ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID");
+        ViewData["StoreID"] = new SelectList(_context.Stores, "StoreID", "StoreID");
             return Page();
         }
 
         [BindProperty]
-        public Store Store { get; set; }
+        public Stock Stock { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -36,7 +38,7 @@ namespace Donut_Shop.Pages.Stores
                 return Page();
             }
 
-            _context.Stores.Add(Store);
+            _context.Stocks.Add(Stock);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

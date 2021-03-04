@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Donut_Shop.Data;
 using Donut_Shop.Models;
 
-namespace Donut_Shop.Pages.Stores
+namespace Donut_Shop.Pages.Stocks
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace Donut_Shop.Pages.Stores
         }
 
         [BindProperty]
-        public Store Store { get; set; }
+        public Stock Stock { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,12 +30,16 @@ namespace Donut_Shop.Pages.Stores
                 return NotFound();
             }
 
-            Store = await _context.Stores.FirstOrDefaultAsync(m => m.StoreID == id);
+            Stock = await _context.Stocks
+                .Include(s => s.Product)
+                .Include(s => s.Store).FirstOrDefaultAsync(m => m.StockID == id);
 
-            if (Store == null)
+            if (Stock == null)
             {
                 return NotFound();
             }
+           ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID");
+           ViewData["StoreID"] = new SelectList(_context.Stores, "StoreID", "StoreID");
             return Page();
         }
 
@@ -48,7 +52,7 @@ namespace Donut_Shop.Pages.Stores
                 return Page();
             }
 
-            _context.Attach(Store).State = EntityState.Modified;
+            _context.Attach(Stock).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +60,7 @@ namespace Donut_Shop.Pages.Stores
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StoreExists(Store.StoreID))
+                if (!StockExists(Stock.StockID))
                 {
                     return NotFound();
                 }
@@ -69,9 +73,9 @@ namespace Donut_Shop.Pages.Stores
             return RedirectToPage("./Index");
         }
 
-        private bool StoreExists(int id)
+        private bool StockExists(int id)
         {
-            return _context.Stores.Any(e => e.StoreID == id);
+            return _context.Stocks.Any(e => e.StockID == id);
         }
     }
 }

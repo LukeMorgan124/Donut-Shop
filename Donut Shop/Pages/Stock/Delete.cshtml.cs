@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Donut_Shop.Data;
 using Donut_Shop.Models;
 
-namespace Donut_Shop.Pages.Stores
+namespace Donut_Shop.Pages.Stocks
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace Donut_Shop.Pages.Stores
         }
 
         [BindProperty]
-        public Store Store { get; set; }
+        public Stock Stock { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,11 @@ namespace Donut_Shop.Pages.Stores
                 return NotFound();
             }
 
-            Store = await _context.Stores.FirstOrDefaultAsync(m => m.StoreID == id);
+            Stock = await _context.Stocks
+                .Include(s => s.Product)
+                .Include(s => s.Store).FirstOrDefaultAsync(m => m.StockID == id);
 
-            if (Store == null)
+            if (Stock == null)
             {
                 return NotFound();
             }
@@ -45,11 +47,11 @@ namespace Donut_Shop.Pages.Stores
                 return NotFound();
             }
 
-            Store = await _context.Stores.FindAsync(id);
+            Stock = await _context.Stocks.FindAsync(id);
 
-            if (Store != null)
+            if (Stock != null)
             {
-                _context.Stores.Remove(Store);
+                _context.Stocks.Remove(Stock);
                 await _context.SaveChangesAsync();
             }
 

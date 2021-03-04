@@ -28,9 +28,7 @@ namespace Donut_Shop.Pages.Stores
                 return NotFound();
             }
 
-            Store = await _context.Store
-                .Include(s => s.Employee)
-                .Include(s => s.Product).FirstOrDefaultAsync(m => m.StoreID == id);
+            Store = await _context.Stores.FirstOrDefaultAsync(m => m.StoreID == id);
 
             if (Store == null)
             {

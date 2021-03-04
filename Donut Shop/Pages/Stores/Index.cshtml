@@ -17,10 +17,7 @@
                 @Html.DisplayNameFor(model => model.Store[0].Location)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Store[0].Product)s in stock
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Store[0].Employee)s
+                Stock Count
             </th>
             <th></th>
         </tr>
@@ -32,10 +29,7 @@
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.EmployeeID)
+                @Html.DisplayFor(modelItem => item.ProductID)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.StoreID">Edit</a> |

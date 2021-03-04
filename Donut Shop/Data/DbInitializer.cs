@@ -18,14 +18,14 @@ namespace Donut_Shop.Data
 
             var products = new Product[]
             {
-                new Product{ProductName="Chocolate",Price=3,StockLocation="Avondale, Glen Eden, Green Bay, Blockhouse Bay, Henderson"},
-                new Product{ProductName="Cinnamon",Price=4,StockLocation="Glen Eden, Oratia, Kelston, Green Bay, Henderson"},
-                new Product{ProductName="Caramel",Price=4,StockLocation="Avondale, Oratia, Titirangi, Blockhouse Bay"},
-                new Product{ProductName="Strawberry",Price=3,StockLocation="Avondale, Glen Eden, Titirangi, Kelston, Blockhouse Bay"},
-                new Product{ProductName="Vanilla",Price=3,StockLocation="Avondale, Oratia, Green Bay, Blockhouse Bay, Henderson"},
-                new Product{ProductName="Jelly",Price=5,StockLocation="Oritia, Titirangi, Kelston, Blockhouse Bay, Henderson"},
-                new Product{ProductName="Blueberry",Price=4,StockLocation="Avondale, Glen Eden, Oratia, Titirangi, Kelston, Green Bay, Blockhouse Bay, Henderson"},
-                new Product{ProductName="Coffee",Price=6,StockLocation="Glen Eden, Oratia, Kelston, Green Bay"},
+                new Product{ProductName="Chocolate",Price=3 },
+                new Product{ProductName="Cinnamon",Price=4},
+                new Product{ProductName="Caramel",Price=4,},
+                new Product{ProductName="Strawberry",Price=3,},
+                new Product{ProductName="Vanilla",Price=3,},
+                new Product{ProductName="Jelly",Price=5},
+                new Product{ProductName="Blueberry",Price=4},
+                new Product{ProductName="Coffee",Price=6},
             };
 
             context.Products.AddRange(products);
@@ -98,18 +98,18 @@ namespace Donut_Shop.Data
             context.SaveChanges();
              var stocks = new Stock[]
             {
-               new Stock{Location="Avondale"},
-               new Stock{Location="Oratia"},
-               new Stock{Location="Glen Eden"},
-               new Stock{Location="Titirangi"},
-               new Stock{Location="Kelston"},
-               new Stock{Location="Green Bay"},
-               new Stock{Location="Blockhouse Bay"},
-               new Stock{Location="Henderson"},
+               new Stock{StoreID=1},
+               new Stock{StoreID=2},
+               new Stock{StoreID=3},
+               new Stock{StoreID=4},
+               new Stock{StoreID=5},
+               new Stock{StoreID=6},
+               new Stock{StoreID=7},
+               new Stock{StoreID=8},
 
             };
 
-            context.Stock.AddRange(Stocks);
+            context.Stocks.AddRange(stocks);
             context.SaveChanges();
         }
     }
