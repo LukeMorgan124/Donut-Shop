@@ -17,6 +17,25 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Store.Location)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Store.Employees)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Staff</th>
+                </tr>
+                @foreach (var item in Model.Store.Employees)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>

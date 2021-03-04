@@ -31,6 +31,22 @@ namespace Donut_Shop.Data
             context.Products.AddRange(products);
             context.SaveChanges();
 
+            var stores = new Store[]
+            {
+               new Store{Location="Avondale"},
+               new Store{Location="Oratia"},
+               new Store{Location="Glen Eden"},
+               new Store{Location="Titirangi"},
+               new Store{Location="Kelston"},
+               new Store{Location="Green Bay"},
+               new Store{Location="Blockhouse Bay"},
+               new Store{Location="Henderson"},
+
+            };
+
+            context.Stores.AddRange(stores);
+            context.SaveChanges();
+
             if (context.Employees.Any())
             {
                 return;   // DB has been seeded
@@ -80,22 +96,8 @@ namespace Donut_Shop.Data
             context.Employees.AddRange(Employees);
             context.SaveChanges();
 
-            var stores = new Store[]
-            {
-               new Store{Location="Avondale"},
-               new Store{Location="Oratia"},
-               new Store{Location="Glen Eden"},
-               new Store{Location="Titirangi"},
-               new Store{Location="Kelston"},
-               new Store{Location="Green Bay"},
-               new Store{Location="Blockhouse Bay"},
-               new Store{Location="Henderson"},
+            
 
-            };
-
-            context.Stores.AddRange(stores);
-
-            context.SaveChanges();
             var stocks = new Stock[]
            {
                new Stock{},
