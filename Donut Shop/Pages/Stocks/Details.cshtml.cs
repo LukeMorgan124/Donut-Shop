@@ -19,7 +19,7 @@ namespace Donut_Shop.Pages.Stocks
             _context = context;
         }
 
-        public Stock Stock { get; set; }
+        public Stock stock { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,11 +28,11 @@ namespace Donut_Shop.Pages.Stocks
                 return NotFound();
             }
 
-            Stock = await _context.Stocks
+            stock = await _context.Stocks
                 .Include(s => s.Product)
                 .Include(s => s.Store).FirstOrDefaultAsync(m => m.StockID == id);
 
-            if (Stock == null)
+            if (stock == null)
             {
                 return NotFound();
             }

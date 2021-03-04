@@ -96,18 +96,18 @@ namespace Donut_Shop.Data
             context.Stores.AddRange(stores);
 
             context.SaveChanges();
-             var stocks = new Stock[]
-            {
-               new Stock{StoreID=1},
-               new Stock{StoreID=2},
-               new Stock{StoreID=3},
-               new Stock{StoreID=4},
-               new Stock{StoreID=5},
-               new Stock{StoreID=6},
-               new Stock{StoreID=7},
-               new Stock{StoreID=8},
+            var stocks = new Stock[]
+           {
+               new Stock{},
+               new Stock{},
+               new Stock{},
+               new Stock{},
+               new Stock{},
+               new Stock{},
+               new Stock{},
+               new Stock{},
 
-            };
+           };
 
             context.Stocks.AddRange(stocks);
             context.SaveChanges();

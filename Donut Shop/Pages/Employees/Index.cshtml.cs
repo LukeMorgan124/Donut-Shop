@@ -19,11 +19,36 @@ namespace Donut_Shop.Pages.Employees
             _context = context;
         }
 
-        public IList<Employee> Employee { get;set; }
+        public IList<Employee> Employees { get; set; }
 
         public async Task OnGetAsync()
         {
-            Employee = await _context.Employees.ToListAsync();
+          
+
+            Employees = await _context.Employees
+                .Include(c => c.Store)
+                .AsNoTracking()
+                .ToListAsync();
         }
+
+        //public IList<EmployeeViewModel> EmployeeVM { get; set; }
+
+        //public async Task OnGetAsync()
+        //{
+        //    EmployeeVM = await _context.Employees
+        //            .Select(p => new EmployeeViewModel
+        //            {
+        //                EmployeeID = p.EmployeeID,
+        //                FirstName = p.FirstName,
+        //                LastName = p.LastName,
+        //                EmployeeType = p.EmployeeType,
+        //                Location = p.Store.Location,
+        //                DateBirth = p.DateBirth
+        //            }).ToListAsync();
+        //}
+
+
+
+
     }
 }

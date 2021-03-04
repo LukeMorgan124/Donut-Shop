@@ -1,5 +1,5 @@
 ﻿@page
-@model Donut_Shop.Pages.Stock.IndexModel
+@model Donut_Shop.Pages.Stocks.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                Stock Count
+                @Html.DisplayNameFor(model => model.Stock[0].StockLevel)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Stock[0].Store)
