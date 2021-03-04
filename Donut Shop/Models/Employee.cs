@@ -9,7 +9,8 @@ namespace Donut_Shop.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmployeeType { get; set; }
-        public string Location { get; set; }
+        
+        public int StoreID { get; set; }
         public string DateBirth { get; set; }
 
 

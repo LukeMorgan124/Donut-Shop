@@ -8,8 +8,7 @@ namespace Donut_Shop.Models
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public float Price { get; set; }
-        public string StockLocation { get; set; }
 
-        public ICollection<Store> Stores { get; set; }
+        public ICollection<Stock> Stocks { get; set; }
     }
 }

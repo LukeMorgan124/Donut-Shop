@@ -15,13 +15,15 @@ namespace Donut_Shop.Data
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Store> Store { get; set; }
+        public DbSet<Store> Stores { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<Store>().ToTable("Store");
+            modelBuilder.Entity<Stock>().ToTable("Stock");
         }
     }
 }
