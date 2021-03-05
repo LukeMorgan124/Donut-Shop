@@ -14,13 +14,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Stock[0].StockLevel)
+                Stock Level
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Stock[0].Store)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Stock[0].Product)
+                Product Name
             </th>
             <th></th>
         </tr>
@@ -32,10 +32,10 @@
                 @Html.DisplayFor(modelItem => item.StockLevel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Store.StoreID)
+                @Html.DisplayFor(modelItem => item.Store.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductID)
+                @Html.DisplayFor(modelItem => item.Products.ProductName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.StockID">Edit</a> |

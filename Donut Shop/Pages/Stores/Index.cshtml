@@ -25,10 +25,11 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Location)
-            </td>            
+            </td>    
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.StoreID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.StoreID">Employees</a> |
+                <a asp-page="./Stock" asp-route-id="@item.StoreID">Stock</a> |
                 <a asp-page="./Delete" asp-route-id="@item.StoreID">Delete</a>
             </td>
         </tr>

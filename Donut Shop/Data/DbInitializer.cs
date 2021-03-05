@@ -1,6 +1,7 @@
 ﻿using Donut_Shop.Data;
 using Donut_Shop.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Donut_Shop.Data
@@ -96,22 +97,22 @@ namespace Donut_Shop.Data
             context.Employees.AddRange(Employees);
             context.SaveChanges();
 
-            
 
-            var stocks = new Stock[]
-           {
-               new Stock{},
-               new Stock{},
-               new Stock{},
-               new Stock{},
-               new Stock{},
-               new Stock{},
-               new Stock{},
-               new Stock{},
+           List<Stock> stocklevels = new List<Stock>();
 
-           };
+            for (int ProductIDCount = 1; ProductIDCount <= products.Length; ProductIDCount++)
+            {
+                for (int StoreIDCount = 1; StoreIDCount <= stores.Length; StoreIDCount++)
+                {
+                    Random rd = new Random();
+                    int rand_num = rd.Next(0, 50);
+                    stocklevels.Add(new Stock(ProductIDCount, StoreIDCount, rand_num));
+                    
+                }
+            }
+       
 
-            context.Stocks.AddRange(stocks);
+            context.Stocks.AddRange(stocklevels);
             context.SaveChanges();
         }
     }

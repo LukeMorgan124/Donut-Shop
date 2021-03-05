@@ -31,7 +31,7 @@ namespace Donut_Shop.Pages.Stocks
             }
 
             stock = await _context.Stocks
-                .Include(s => s.Product)
+                .Include(s => s.Products)
                 .Include(s => s.Store).FirstOrDefaultAsync(m => m.StockID == id);
 
             if (stock == null)

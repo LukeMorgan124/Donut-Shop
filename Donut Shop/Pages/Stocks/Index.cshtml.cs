@@ -24,7 +24,7 @@ namespace Donut_Shop.Pages.Stocks
         public async Task OnGetAsync()
         {
             Stock = await _context.Stocks
-                .Include(s => s.Product)
+                .Include(s => s.Products)
                 .Include(s => s.Store).ToListAsync();
         }
     }
