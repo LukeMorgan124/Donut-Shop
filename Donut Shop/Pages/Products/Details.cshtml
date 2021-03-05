@@ -23,6 +23,25 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Product.Price)
         </dd>
+             <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Store</th>
+                    <th>Stock Count</th>
+                </tr>
+                @foreach (var item in Model.Product.Stocks)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Store.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StockLevel)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>
