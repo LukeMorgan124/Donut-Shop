@@ -30,25 +30,5 @@ namespace Donut_Shop.Pages.Employees
                 .AsNoTracking()
                 .ToListAsync();
         }
-
-        //public IList<EmployeeViewModel> EmployeeVM { get; set; }
-
-        //public async Task OnGetAsync()
-        //{
-        //    EmployeeVM = await _context.Employees
-        //            .Select(p => new EmployeeViewModel
-        //            {
-        //                EmployeeID = p.EmployeeID,
-        //                FirstName = p.FirstName,
-        //                LastName = p.LastName,
-        //                EmployeeType = p.EmployeeType,
-        //                Location = p.Store.Location,
-        //                DateBirth = p.DateBirth
-        //            }).ToListAsync();
-        //}
-
-
-
-
     }
 }
