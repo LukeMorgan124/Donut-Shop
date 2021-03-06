@@ -21,6 +21,7 @@ namespace Donut_Shop.Pages.Employees
 
         public Employee Employee { get; set; }
 
+      
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -28,8 +29,11 @@ namespace Donut_Shop.Pages.Employees
                 return NotFound();
             }
 
-            Employee = await _context.Employees.FirstOrDefaultAsync(m => m.EmployeeID == id);
-
+            Employee = await _context.Employees
+            .Include(s => s.Store)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(m => m.EmployeeID == id);
+    
             if (Employee == null)
             {
                 return NotFound();
