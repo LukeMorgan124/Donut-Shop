@@ -2,59 +2,108 @@
 @model Donut_Shop.Pages.Employees.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Employees";
 }
 
-<h1>Index</h1>
+<h1>Employees</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.FirstNameSort"
+                 asp-route-currentFilter="@Model.CurrentFilter">
                 First Name
+                </a>
             </th>
             <th>
-               Last Name
+               <a asp-page="./Index" asp-route-sortOrder="@Model.LastNameSort"
+                asp-route-currentFilter="@Model.CurrentFilter">
+                Last Name
+                </a>
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ETSort"
+                 asp-route-currentFilter="@Model.CurrentFilter">
                 Employee Type
+                </a>
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.StoreSort"
+                 asp-route-currentFilter="@Model.CurrentFilter">
                 Workplace
+                </a>
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DOBSort"
+                 asp-route-currentFilter="@Model.CurrentFilter">
                 Date of Birth
+                </a>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Employees) {
+@foreach (var item in Model.Employees) 
+{
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(modelItem => item.Employee.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.Employee.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EmployeeType)
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Store.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateBirth)
+                @Html.DisplayFor(modelItem => item.Employee.DateBirth)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.EmployeeID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.EmployeeID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.EmployeeID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Employee.EmployeeID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Employee.EmployeeID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Employee.EmployeeID">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+
+@{
+    var prevDisabled = !Model.Employees.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Employees.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Employees.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Employees.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

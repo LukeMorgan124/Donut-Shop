@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
 namespace Donut_Shop.Models
@@ -10,7 +11,8 @@ namespace Donut_Shop.Models
         public string LastName { get; set; }
         public string EmployeeType { get; set; }       
         public int StoreID { get; set; }
-        public string DateBirth { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime DateBirth { get; set; }
 
         public Store Store { get; set; }
 
@@ -26,7 +28,7 @@ namespace Donut_Shop.Models
         public string LastName { get; set; }
         public string EmployeeType { get; set; }
         public string Location { get; set; }
-        public string DateBirth { get; set; }
+        public DateTime DateBirth { get; set; }
 
         public Store Store { get; set; }
     }
