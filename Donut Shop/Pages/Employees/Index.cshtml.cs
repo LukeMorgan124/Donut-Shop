@@ -33,8 +33,6 @@ namespace Donut_Shop.Pages.Employees
             public Employee Employee { get; set; }
             public Store Store { get; set; }
         }
-
-        //public PaginatedList<Employee> Employees { get; set; }
         public PaginatedList<EmployeesPlusStore> Employees { get; set; }
 
         public async Task OnGetAsync(string sortOrder,
@@ -56,9 +54,6 @@ namespace Donut_Shop.Pages.Employees
             }
 
             CurrentFilter = searchString;
-
-            //IQueryable<Employee> employeesIQ = from s in _context.Employees 
-            //                                 select s;
 
             IQueryable<EmployeesPlusStore> employeesIQ = from e in _context.Employees
                                                          join s in _context.Stores on e.StoreID equals s.StoreID
@@ -106,12 +101,6 @@ namespace Donut_Shop.Pages.Employees
                     employeesIQ = employeesIQ.OrderBy(s => s.Employee.LastName);
                     break;
             }
-
-
-            //Employee = await _context.Employees
-            //    .Include(s => s.Store)
-            //    .AsNoTracking()
-            //    .ToListAsync();
 
             int pageSize = 8;
             Employees = await PaginatedList<EmployeesPlusStore>.CreateAsync(

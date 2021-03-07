@@ -14,7 +14,7 @@ namespace Donut_Shop.Data
 
             if (context.Products.Any())
             {
-                return;   // DB has been seeded
+                return;   
             }
 
             var products = new Product[]
@@ -50,7 +50,7 @@ namespace Donut_Shop.Data
 
             if (context.Employees.Any())
             {
-                return;   // DB has been seeded
+                return;   
             }
 
             var Employees = new Employee[]

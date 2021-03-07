@@ -11,12 +11,11 @@ namespace Donut_Shop.Models
         public string LastName { get; set; }
         public string EmployeeType { get; set; }       
         public int StoreID { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DateBirth { get; set; }
 
         public Store Store { get; set; }
-
-        //public ICollection<Store> Store { get; set; }
 
        
     }
