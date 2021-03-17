@@ -110,8 +110,6 @@ namespace Donut_Shop.Data
                     
                 }
             }
-       
-
             context.Stocks.AddRange(stocklevels);
             context.SaveChanges();
         }

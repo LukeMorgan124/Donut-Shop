@@ -43,7 +43,7 @@ namespace Donut_Shop.Pages.Employees
             LastNameSort = String.IsNullOrEmpty(sortOrder) ? "Lname_desc" : "";
             StoreSort = sortOrder == "Store" ? "Store_desc" : "Store";
             ETSort = sortOrder =="ET" ? "ET_desc" : "ET";
-            DOBSort = sortOrder == "DOB" ? "DOB_desc" : "ET";
+            DOBSort = sortOrder == "DOB" ? "DOB_desc" : "DT";
             if (searchString != null)
             {
                 pageIndex = 1;
